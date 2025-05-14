@@ -9,81 +9,75 @@
   <body>
     <h1>Černé díry</h1>
     <div class="layout">
-      <div class="container">
-        <div class="data-container-form">
-          <div class="data-input">
-            <h2>Vstupní hodnoty</h2>
-            <form>
+      <div class="main-container">
+        <div class="left-container">
+          <div class="first-container">
+            <!-- Formulář odešle data pomocí CGI C++ scriptu, který je zpracuje a následně vrátí -->
+            <form id="form" action="/cgi-bin/index.cgi" method="post">
               <!-- Hodnoty pro černou díru -->
-              <div class="form-section">
-                <h3>Černá díra</h3>
-                <label for="spin" class="label">Spin (a): </label>
-                <input type="text" id="spin" name="spin" class="input" /><br />
-                <label for="mass" class="label">Hmotnost (m): </label>
-                <input type="text" id="mass" name="mass" class="input" /><br />
+              <div class="first-element">
+                <h2>Černá díra</h2>
+                <div class="form-row">
+                  <label for="spin">Zadejte <strong>a</strong></label>
+                  <!-- V rozsahu 0-1 -->
+                  <input type="text" id="spin" name="spin" min="0" max="1" required/>
+                </div>
+                <div class="form-row">
+                  <!-- Sluneční hmotnosti (M☉) od 1 -->
+                  <label for="mass">Zadejte <strong>m</strong></label>
+                  <input type="text" id="mass" name="mass" min="1" required/>
+                </div>
               </div>
               <!-- Hodnoty pro akreční disk -->
-              <div class="form-section">
-                <h3>Akreční disk</h3>
-                <label for="rim_in" class="label"
-                  >Vnitřní okraj (r<sub>in</sub>)</label
-                >
-                <input
-                  type="text"
-                  id="rim_in"
-                  name="rim_in"
-                  class="input"
-                /><br />
-                <label for="rim_out" class="label"
-                  >Vnější okraj (r<sub>out</sub>)</label
-                >
-                <input
-                  type="text"
-                  id="rim_out"
-                  name="rim_out"
-                  class="input"
-                /><br />
+              <div class="first-element">
+                <h2>Akreční disk</h2>
+                <div class="form-row">
+                  <!-- v rozsahu od 1 -->
+                  <label for="rim_in">Zadejte <strong>r<sub>in</sub></strong></label>
+                  <input type="text" id="rim_in" name="rim_in" min="1" required/>
+                </div>
+                <div class="form-row">
+                  <!-- v rozsahu od 2 -->
+                  <label for="rim_out">Zadejte <strong>r<sub>out</sub></strong></label>
+                  <input type="text" id="rim_out" name="rim_out" min="2" required/>
+                </div>
               </div>
               <!-- Hodnoty pro pozorovatele -->
-              <div class="form-section">
-                <h3>Pozorovatel</h3>
-                <label for="distance" class="label"
-                  >Radiální vzdálenost (r<sub>0</sub>):
-                </label>
-                <input
-                  type="text"
-                  id="distance"
-                  name="distance"
-                  class="input"
-                /><br />
-                <label for="angle" class="label">Pozorovací úhel (θ): </label>
-                <input
-                  type="text"
-                  id="angle"
-                  name="angle"
-                  class="input"
-                /><br />
+              <div class="first-element">
+                <h2>Pozorovatel</h2>
+                <div class="form-row">
+                  <!-- Násobky AU od 1000 -->
+                  <label for="distance">Zadejte <strong>r<sub>0</sub></strong></label>
+                  <input type="text" id="distance" name="distance" min="1000" required/>
+                </div>
+                <div class="form-row">
+                  <!-- Úhlové stupně v rozsahu 0°-90° -->
+                  <label for="angle">Zadejte <strong>θ</strong></label>
+                  <input type="text" id="angle" name="angle" min="0" max="90" required/>
+                </div>
               </div>
             </form>
           </div>
-          <div class="data-output">
-            <p>skdflsdk</p>
+          <div class="second-container">
+            <div class="second-element"></div>
+            <div class="second-element"></div>
+            <div class="button-container">
+              <button type="submit" form="form" class="button-submit">Vygenerovat</button>
+              <button type="submit" form="form" class="button-reset">Vyresetovat</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="container">
-        <div class="data-container-help">
-          <div class="image-container">
-            <img
-              src="img/accretion-disk.png"
-              alt="Akreční disk"
-              class="image"
-            />
-          </div>
-          <div class="help-container">
-            <p>aslkjfdlaskfdsf</p>
-            <p>skdlfjaslkdfjasl</p>
-            <p>aslkjdflsdkfjsldkfjldsk</p>
+        <div class="right-container">
+          <img src="img/accretion-disk.png" alt="Akreční disk" class="image" />
+          <div>
+            <p class="footnotes">
+              <strong>[a] Spin</strong> - udává, jak rychle se černá díra otáčí kolem své osy<br />
+              <strong>[m] Hmotnost</strong> - určuje gravitační sílu a velikost horizontu událostí černé díry<br />
+              <strong>[r<sub>in</sub>] Vnitřní okraj</strong> - Nejbližší vzdálenost, kde může hmota ještě stabilně obíhat<br />
+              <strong>[r<sub>out</sub>] Vnější okraj</strong> - Nejvzdálenější bod, kde ještě hmota tvoří disk<br />
+              <strong>[r<sub>0</sub>] Vzdálenost</strong> - Odkud pozorovatel sleduje černou díru a akreční disk.<br />
+              <strong>[θ] Pozorovací úhel</strong> - Úhel, pod kterým pozorovatel vnímá akreční disk černé díry.<br />
+            </p>
           </div>
         </div>
       </div>
