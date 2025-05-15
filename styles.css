@@ -5,20 +5,24 @@
   --img-height: 80%;
 }
 
+body {
+  /* Nastaví font Poppins každému textu na stránce */
+  font-family: "Poppins", sans-serif;
+}
+
 /* Vlastnosti textu */
 h1,
 h2 {
-  font-family: "Poppins", sans-serif;
   color: #333333;
 }
 /* Hlavní nadpis */
 h1 {
-    text-align: center;
+  text-align: center;
   font-size: 200%;
 }
 /* Nadpisy nad formuláři */
 h2 {
-    text-align: left;
+  text-align: left;
   font-size: 140%;
 }
 
@@ -46,7 +50,6 @@ h2 {
   flex: 1;
   box-sizing: border-box;
   padding: 20px;
-  overflow: auto;
 }
 /* Levý kontejner s formulářem a grafy */
 .left-container {
@@ -73,8 +76,6 @@ h2 {
 
 /* První kontejner */
 .first-container {
-  background: #dadada;
-  border-radius: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto;
@@ -83,17 +84,16 @@ h2 {
   margin: 0 auto;
   padding: 10px;
   width: 100%;
-  height: 113%;
+  height: auto;
   box-sizing: border-box;
 }
 /* Prvky v prvním kontejneru */
 .first-element {
   border-radius: 5px;
-  padding-left: 10%;
-  padding-top: 1%;
-  margin: 10px;
-  height: 33%;
-  width: 116%;
+  padding: 10px;
+  margin: 5px;
+  height: auto;
+  width: 108%;
   text-align: left;
 }
 
@@ -140,13 +140,11 @@ h2 {
 /* Výzva pro vstup hodnoty */
 .form-row label {
   margin-right: 10px;
-  font-family: "Poppins", sans-serif;
   font-size: 110%;
   color: #333333;
 }
 /* Vstupní políčko pro hodnotu */
 .form-row input {
-  font-family: "Poppins", sans-serif;
   width: 120px;
   padding: 6px 8px;
   font-size: 14px;
@@ -171,7 +169,6 @@ h2 {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-family: "Poppins", sans-serif;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
@@ -187,7 +184,6 @@ h2 {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-family: "Poppins", sans-serif;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
@@ -195,17 +191,20 @@ h2 {
   transition-duration: 0.2s;
 }
 /* Přejetí po tlačítku */
-.button-submit:hover{
+.button-submit:hover {
   background-color: #347c36;
 }
-.button-reset:hover{
+.button-reset:hover {
   background-color: #8b0f0f;
 }
 /* Poznámky pod čarou */
 .footnotes {
-  font-family: "Poppins", sans-serif;
   color: #333333;
   font-size: 95%;
   text-align: left;
   margin-top: 20px;
+}
+
+#error-box.show {
+  display: block;
 }

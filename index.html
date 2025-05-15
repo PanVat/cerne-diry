@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Černé díry</title>
+    <script src="validator.js" defer></script>
   </head>
   <body>
     <h1>Černé díry</h1>
@@ -13,19 +14,19 @@
         <div class="left-container">
           <div class="first-container">
             <!-- Formulář odešle data pomocí CGI C++ scriptu, který je zpracuje a následně vrátí -->
-            <form id="form" action="/cgi-bin/index.cgi" method="post">
+            <form id="form" action="/cgi-bin/test.cgi" method="post">
               <!-- Hodnoty pro černou díru -->
               <div class="first-element">
                 <h2>Černá díra</h2>
                 <div class="form-row">
                   <label for="spin">Zadejte <strong>a</strong></label>
                   <!-- V rozsahu 0-1 -->
-                  <input type="text" id="spin" name="spin" min="0" max="1" required/>
+                  <input type="number" id="spin" name="spin" min="0" max="1" required/>
                 </div>
                 <div class="form-row">
                   <!-- Sluneční hmotnosti (M☉) od 1 -->
                   <label for="mass">Zadejte <strong>m</strong></label>
-                  <input type="text" id="mass" name="mass" min="1" required/>
+                  <input type="number" id="mass" name="mass" min="1" required/>
                 </div>
               </div>
               <!-- Hodnoty pro akreční disk -->
@@ -34,12 +35,17 @@
                 <div class="form-row">
                   <!-- v rozsahu od 1 -->
                   <label for="rim_in">Zadejte <strong>r<sub>in</sub></strong></label>
-                  <input type="text" id="rim_in" name="rim_in" min="1" required/>
+                  <input type="number" id="rim_in" name="rim_in" min="1" required/>
                 </div>
                 <div class="form-row">
                   <!-- v rozsahu od 2 -->
                   <label for="rim_out">Zadejte <strong>r<sub>out</sub></strong></label>
-                  <input type="text" id="rim_out" name="rim_out" min="2" required/>
+                  <input type="number" id="rim_out" name="rim_out" min="2" required/>
+                </div>
+                <div class="form-row">
+                  <!-- v rozsahu od 2 -->
+                  <label for="temperature">Zadejte <strong>T</strong></label>
+                  <input type="number" id="temperature" name="temperature" min="1" required/>
                 </div>
               </div>
               <!-- Hodnoty pro pozorovatele -->
@@ -48,12 +54,12 @@
                 <div class="form-row">
                   <!-- Násobky AU od 1000 -->
                   <label for="distance">Zadejte <strong>r<sub>0</sub></strong></label>
-                  <input type="text" id="distance" name="distance" min="1000" required/>
+                  <input type="number" id="distance" name="distance" min="1000" required/>
                 </div>
                 <div class="form-row">
                   <!-- Úhlové stupně v rozsahu 0°-90° -->
                   <label for="angle">Zadejte <strong>θ</strong></label>
-                  <input type="text" id="angle" name="angle" min="0" max="90" required/>
+                  <input type="number" id="angle" name="angle" min="0" max="90" required/>
                 </div>
               </div>
             </form>
@@ -75,6 +81,7 @@
               <strong>[m] Hmotnost</strong> - určuje gravitační sílu a velikost horizontu událostí černé díry<br />
               <strong>[r<sub>in</sub>] Vnitřní okraj</strong> - Nejbližší vzdálenost, kde může hmota ještě stabilně obíhat<br />
               <strong>[r<sub>out</sub>] Vnější okraj</strong> - Nejvzdálenější bod, kde ještě hmota tvoří disk<br />
+              <strong>[T]</strong> - Teplota akrečního disku, která určuje jeho záření<br />
               <strong>[r<sub>0</sub>] Vzdálenost</strong> - Odkud pozorovatel sleduje černou díru a akreční disk.<br />
               <strong>[θ] Pozorovací úhel</strong> - Úhel, pod kterým pozorovatel vnímá akreční disk černé díry.<br />
             </p>
