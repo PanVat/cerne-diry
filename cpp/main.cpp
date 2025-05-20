@@ -7,26 +7,12 @@
 #include <cmath>
 #include <algorithm>
 
-/* Jednoduchá funkce 'f' */
-inline double f(double u) { return 1 - 2 * u; }
+/* Pohybové konstanty (můžeme si nastavit dle potřeby) */
+static const double l = 2.0;
+static const double q = 1.0;
 
-/* Funkce 'f' vrací součet čísel 'x' a 'y' */
-inline double f(double x, double y) { return y + x; }
 
-/* Funkce 'rk4integrate' provádí integraci pomocí Runge-Kutta 4. řádu */
-double rk4integrate(double x, double y, double xn, double h)
-{
-    while (x < xn)
-    {
-        double k1 = h * f(x, y);
-        double k2 = h * f(x + h / 2.0, y + k1 / 2.0);
-        double k3 = h * f(x + h / 2.0, y + k2 / 2.0);
-        double k4 = h * f(x + h, y + k3);
-        y += (k1 + 2 * k2 + 2 * k3 + k4) / 6.0;
-        x += h;
-    }
-    return y;
-}
+
 
 std::map<std::string, std::string> parse_data(const std::string &data);
 std::string decode_url(const std::string &value);
@@ -125,10 +111,9 @@ int main()
     }
 
     /* Souřadnice, které budou sloužit k výpočtu -> (t, u, m, ϕ) */
-    double t = 0.0;                       // Čas měřený vzdálenými statickými pozorovateli
     double u = 1 / distance;              // Vzdálenost
     double m = cos(angle * (M_PI / 180)); // Úhel
-    double phi = 0.0;                     // Azimutální souřadnice
+
 
     return 0;
 }
