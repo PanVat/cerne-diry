@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const temperature = parseFloat(form.temperature.value);
         const r0 = parseFloat(form.distance.value);
         const theta = parseFloat(form.angle.value);
-
         /* Pole, které uchovává chyby */
         let errors = [];
 

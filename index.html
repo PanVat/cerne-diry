@@ -21,12 +21,19 @@
                 <div class="form-row">
                   <label for="spin">Zadejte <strong>a</strong></label>
                   <!-- V rozsahu 0-1 -->
-                  <input type="number" id="spin" name="spin" min="0" max="1" required/>
+                  <input
+                    type="number"
+                    id="spin"
+                    name="spin"
+                    min="0"
+                    max="1"
+                    required
+                  />
                 </div>
                 <div class="form-row">
                   <!-- Sluneční hmotnosti (M☉) od 1 -->
                   <label for="mass">Zadejte <strong>M</strong></label>
-                  <input type="number" id="mass" name="mass" min="1" required/>
+                  <input type="number" id="mass" name="mass" min="1" required />
                 </div>
               </div>
               <!-- Hodnoty pro akreční disk -->
@@ -34,18 +41,42 @@
                 <h2>Akreční disk</h2>
                 <div class="form-row">
                   <!-- v rozsahu od 1 -->
-                  <label for="rim_in">Zadejte <strong>r<sub>in</sub></strong></label>
-                  <input type="number" id="rim_in" name="rim_in" min="1" max="6" required/>
+                  <label for="rim_in"
+                    >Zadejte <strong>r<sub>in</sub></strong></label
+                  >
+                  <input
+                    type="number"
+                    id="rim_in"
+                    name="rim_in"
+                    min="1"
+                    max="6"
+                    required
+                  />
                 </div>
                 <div class="form-row">
                   <!-- v rozsahu od 2 -->
-                  <label for="rim_out">Zadejte <strong>r<sub>out</sub></strong></label>
-                  <input type="number" id="rim_out" name="rim_out" min="2" max="100" required/>
+                  <label for="rim_out"
+                    >Zadejte <strong>r<sub>out</sub></strong></label
+                  >
+                  <input
+                    type="number"
+                    id="rim_out"
+                    name="rim_out"
+                    min="2"
+                    max="100"
+                    required
+                  />
                 </div>
                 <div class="form-row">
                   <!-- v rozsahu od 2 -->
                   <label for="temperature">Zadejte <strong>T</strong></label>
-                  <input type="number" id="temperature" name="temperature" min="1" required/>
+                  <input
+                    type="number"
+                    id="temperature"
+                    name="temperature"
+                    min="1"
+                    required
+                  />
                 </div>
               </div>
               <!-- Hodnoty pro pozorovatele -->
@@ -53,23 +84,108 @@
                 <h2>Pozorovatel</h2>
                 <div class="form-row">
                   <!-- Násobky AU od 1000 -->
-                  <label for="distance">Zadejte <strong>r<sub>0</sub></strong></label>
-                  <input type="number" id="distance" name="distance" min="10000" required/>
+                  <label for="distance"
+                    >Zadejte <strong>r<sub>0</sub></strong></label
+                  >
+                  <input
+                    type="number"
+                    id="distance"
+                    name="distance"
+                    min="10000"
+                    required
+                  />
                 </div>
                 <div class="form-row">
                   <!-- Úhlové stupně v rozsahu 0°-90° -->
                   <label for="angle">Zadejte <strong>θ</strong></label>
-                  <input type="number" id="angle" name="angle" min="0" max="90" required/>
+                  <input
+                    type="number"
+                    id="angle"
+                    name="angle"
+                    min="0"
+                    max="90"
+                    required
+                  />
                 </div>
               </div>
             </form>
           </div>
           <div class="second-container">
-            <div class="second-element"></div>
-            <div class="second-element"></div>
+            <div class="second-element" id="options">
+              <!-- Zadávání volitelných alfa hodnot -->
+              <div class="optional-values">
+                <h2>Alfa hodnoty</h2>
+                <div class="form-row">
+                  <!-- Minimální hodnota 'alfa' -->
+                  <input
+                    type="number"
+                    id="alpha_min"
+                    name="alpha_min"
+                    placeholder="min"
+                  />
+                </div>
+                <div class="form-row">
+                  <!-- Maximální hodnota 'alfa' -->
+                  <input
+                    type="number"
+                    id="alpha_max"
+                    name="alpha_max"
+                    placeholder="max"
+                  />
+                </div>
+                <div class="form-row">
+                  <!-- Hodnota pro krok 'alfa' -->
+                  <input
+                    type="number"
+                    id="step_alpha"
+                    name="step_alpha"
+                    placeholder="krok"
+                  />
+                </div>
+              </div>
+              <div class="optional-values">
+                <h2>Beta hodnoty</h2>
+                <div class="form-row">
+                  <!-- Minimální hodnota 'beta' je -100 -->
+                  <input
+                    type="number"
+                    id="beta_min"
+                    name="beta_min"
+                    min="-100"
+                    placeholder="min"
+                  />
+                </div>
+                <div class="form-row">
+                  <!-- Maximální hodnota 'beta' je -100 -->
+                  <input
+                    type="number"
+                    id="beta_max"
+                    name="beta_max"
+                    max="100"
+                    placeholder="max"
+                  />
+                </div>
+                <div class="form-row">
+                  <!-- Hodnota pro krok 'beta' -->
+                  <input
+                    type="number"
+                    id="step_beta"
+                    name="step_beta"
+                    placeholder="krok"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="second-element" id="output">
+              <img src="img/screen.png" alt="Graf" />
+            </div>
             <div class="button-container">
-              <button type="submit" form="form" class="button-submit">Vygenerovat</button>
-              <button type="submit" form="form" class="button-reset">Vyresetovat</button>
+              <button type="submit" form="form" class="button-submit">
+                Vygenerovat
+              </button>
+              <button type="submit" form="form" class="button-reset">
+                Vyresetovat
+              </button>
             </div>
           </div>
         </div>
@@ -77,13 +193,20 @@
           <img src="img/accretion-disk.png" alt="Akreční disk" class="image" />
           <div>
             <p class="footnotes">
-              <strong>[a] Spin</strong> - udává, jak rychle se černá díra otáčí kolem své osy<br />
-              <strong>[M] Hmotnost</strong> - určuje gravitační sílu a velikost horizontu událostí černé díry<br />
-              <strong>[r<sub>in</sub>] Vnitřní okraj</strong> - Nejbližší vzdálenost, kde může hmota ještě stabilně obíhat<br />
-              <strong>[r<sub>out</sub>] Vnější okraj</strong> - Nejvzdálenější bod, kde ještě hmota tvoří disk<br />
-              <strong>[T]</strong> - Teplota akrečního disku, která určuje jeho záření<br />
-              <strong>[r<sub>0</sub>] Vzdálenost</strong> - Odkud pozorovatel sleduje černou díru a akreční disk.<br />
-              <strong>[θ] Pozorovací úhel</strong> - Úhel, pod kterým pozorovatel vnímá akreční disk černé díry.<br />
+              <strong>[a] Spin</strong> - udává, jak rychle se černá díra otáčí
+              kolem své osy<br />
+              <strong>[M] Hmotnost</strong> - určuje gravitační sílu a velikost
+              horizontu událostí černé díry<br />
+              <strong>[r<sub>in</sub>] Vnitřní okraj</strong> - Nejbližší
+              vzdálenost, kde může hmota ještě stabilně obíhat<br />
+              <strong>[r<sub>out</sub>] Vnější okraj</strong> - Nejvzdálenější
+              bod, kde ještě hmota tvoří disk<br />
+              <strong>[T]</strong> - Teplota akrečního disku, která určuje jeho
+              záření<br />
+              <strong>[r<sub>0</sub>] Vzdálenost</strong> - Odkud pozorovatel
+              sleduje černou díru a akreční disk.<br />
+              <strong>[θ] Pozorovací úhel</strong> - Úhel, pod kterým
+              pozorovatel vnímá akreční disk černé díry.<br />
             </p>
           </div>
         </div>
