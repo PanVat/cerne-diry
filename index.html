@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Černé díry</title>
-    <script src="validator.js" defer></script>
+    <script src="js/validator.js" defer></script>
   </head>
   <body>
     <h1>Černé díry</h1>
@@ -14,7 +14,7 @@
         <div class="left-container">
           <div class="first-container">
             <!-- Formulář odešle data pomocí CGI C++ scriptu, který je zpracuje a následně vrátí -->
-            <form id="form" action="/cgi/main.cgi" method="post">
+            <form id="form" method="post">
               <!-- Hodnoty pro černou díru -->
               <div class="first-element">
                 <h2>Černá díra</h2>
@@ -68,13 +68,14 @@
                   />
                 </div>
                 <div class="form-row">
-                  <!-- v rozsahu od 2 -->
-                  <label for="temperature">Zadejte <strong>T</strong></label>
+                  <!-- Teplota v rozsahu 0-1000 -->
+                  <label for="temp">Zadejte <strong>T</strong></label>
                   <input
                     type="number"
-                    id="temperature"
-                    name="temperature"
-                    min="1"
+                    id="temp"
+                    name="temp"
+                    min="0"
+                    max="1000"
                     required
                   />
                 </div>
@@ -87,13 +88,7 @@
                   <label for="distance"
                     >Zadejte <strong>r<sub>0</sub></strong></label
                   >
-                  <input
-                    type="number"
-                    id="distance"
-                    name="distance"
-                    min="10000"
-                    required
-                  />
+                  <input type="number" id="distance" name="distance" required />
                 </div>
                 <div class="form-row">
                   <!-- Úhlové stupně v rozsahu 0°-90° -->
@@ -108,81 +103,86 @@
                   />
                 </div>
               </div>
+              <div class="second-element" id="options">
+                <!-- Zadávání volitelných alfa hodnot -->
+                <div class="optional-values">
+                  <h2>Alfa hodnoty</h2>
+                  <div class="form-row">
+                    <!-- Minimální hodnota 'alfa' -->
+                    <input
+                      type="number"
+                      id="alpha_min"
+                      name="alpha_min"
+                      placeholder="min"
+                    />
+                  </div>
+                  <div class="form-row">
+                    <!-- Maximální hodnota 'alfa' -->
+                    <input
+                      type="number"
+                      id="alpha_max"
+                      name="alpha_max"
+                      placeholder="max"
+                    />
+                  </div>
+                  <div class="form-row">
+                    <!-- Hodnota pro krok 'alfa' -->
+                    <input
+                      type="number"
+                      id="step_alpha"
+                      name="step_alpha"
+                      placeholder="krok"
+                    />
+                  </div>
+                </div>
+                <div class="optional-values">
+                  <h2>Beta hodnoty</h2>
+                  <div class="form-row">
+                    <!-- Minimální hodnota 'beta' je -100 -->
+                    <input
+                      type="number"
+                      id="beta_min"
+                      name="beta_min"
+                      placeholder="min"
+                    />
+                  </div>
+                  <div class="form-row">
+                    <!-- Maximální hodnota 'beta' je -100 -->
+                    <input
+                      type="number"
+                      id="beta_max"
+                      name="beta_max"
+                      placeholder="max"
+                    />
+                  </div>
+                  <div class="form-row">
+                    <!-- Hodnota pro krok 'beta' -->
+                    <input
+                      type="number"
+                      id="step_beta"
+                      name="step_beta"
+                      placeholder="krok"
+                    />
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
+          <!-- Kontejner s obrázky výstupních grafů -->
           <div class="second-container">
-            <div class="second-element" id="options">
-              <!-- Zadávání volitelných alfa hodnot -->
-              <div class="optional-values">
-                <h2>Alfa hodnoty</h2>
-                <div class="form-row">
-                  <!-- Minimální hodnota 'alfa' -->
-                  <input
-                    type="number"
-                    id="alpha_min"
-                    name="alpha_min"
-                    placeholder="min"
-                  />
-                </div>
-                <div class="form-row">
-                  <!-- Maximální hodnota 'alfa' -->
-                  <input
-                    type="number"
-                    id="alpha_max"
-                    name="alpha_max"
-                    placeholder="max"
-                  />
-                </div>
-                <div class="form-row">
-                  <!-- Hodnota pro krok 'alfa' -->
-                  <input
-                    type="number"
-                    id="step_alpha"
-                    name="step_alpha"
-                    placeholder="krok"
-                  />
-                </div>
-              </div>
-              <div class="optional-values">
-                <h2>Beta hodnoty</h2>
-                <div class="form-row">
-                  <!-- Minimální hodnota 'beta' je -100 -->
-                  <input
-                    type="number"
-                    id="beta_min"
-                    name="beta_min"
-                    min="-100"
-                    placeholder="min"
-                  />
-                </div>
-                <div class="form-row">
-                  <!-- Maximální hodnota 'beta' je -100 -->
-                  <input
-                    type="number"
-                    id="beta_max"
-                    name="beta_max"
-                    max="100"
-                    placeholder="max"
-                  />
-                </div>
-                <div class="form-row">
-                  <!-- Hodnota pro krok 'beta' -->
-                  <input
-                    type="number"
-                    id="step_beta"
-                    name="step_beta"
-                    placeholder="krok"
-                  />
-                </div>
-              </div>
+            <!-- Graf s daty -->
+            <div class="second-element">
+              <img src="img/screen.png" alt="Graf" id="output" />
             </div>
-            <div class="second-element" id="output">
-              <img src="img/screen.png" alt="Graf" />
+            <!-- Graf s akrečním diskem -->
+            <div class="second-element">
+              <img src="img/screen.png" alt="Graf" id="output" />
             </div>
             <div class="button-container">
               <button type="submit" form="form" class="button-submit">
                 Vygenerovat
               </button>
+              <script src="js/handle.js"></script>
               <button type="submit" form="form" class="button-reset">
                 Vyresetovat
               </button>
