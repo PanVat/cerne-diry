@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
 
-screendata=np.loadtxt("../run/screen.dat",dtype=float)
+screendata=np.loadtxt("C:/xampp/htdocs/run/screen.dat",dtype=float)
 
 w=600
 h=600
@@ -36,6 +36,6 @@ ax.set_yticks(x,labels)
 ax.set_xlabel(r'$\alpha$')
 ax.set_ylabel(r'$\beta$',rotation=0)
 
-plt.savefig("screen.png")
+plt.savefig("C:/xampp/htdocs/img/screen.png")
 
 

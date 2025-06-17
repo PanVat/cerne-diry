@@ -10,8 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-
-pldata=np.loadtxt("../run/pline.dat",dtype=float)
+pldata=np.loadtxt("C:/xampp/htdocs/run/pline.dat",dtype=float)
 
 nu0=6.4
 
@@ -28,4 +27,4 @@ fig,ax = plt.subplots()
 ax.plot(x,y)
 ax.set_xlabel("observed frequency[keV]")
 ax.set_ylabel("specific flux[unitless]")
-plt.savefig("plplot.png")
+plt.savefig("C:/xampp/htdocs/img/plplot.png")

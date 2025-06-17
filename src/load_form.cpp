@@ -87,19 +87,19 @@ void process_data(double &a, double &M, double &r_in, double &r_out, double &tem
     /* Načtení všech dat z formuláře do příslušných proměnných */
 
     /* Spin */
-    get_form_data(a, 0.0, "a", form_data);
+    get_form_data(a, 0.0, "spin", form_data);
     /* Hmotnost */
-    get_form_data(M, 0.0, "M", form_data);
+    get_form_data(M, 0.0, "mass", form_data);
     /* Vnitřní okraj */
-    get_form_data(r_in, 0.0, "r_in", form_data);
+    get_form_data(r_in, 0.0, "rim_in", form_data);
     /* Vnější okraj */
-    get_form_data(r_out, 0.0, "r_out", form_data);
+    get_form_data(r_out, 0.0, "rim_out", form_data);
     /* Teplota */
-    get_form_data(temp, 0.0, "temp", form_data);
+    get_form_data(temp, 0.0, "temperature", form_data);
     /* Počáteční vzdálenost */
-    get_form_data(r0, 0.0, "r0", form_data);
+    get_form_data(r0, 0.0, "distance", form_data);
     /* Počáteční úhel */
-    get_form_data(th, 0.0, "th", form_data);
+    get_form_data(th, 0.0, "angle", form_data);
     /* Alfa min */
     get_form_data(al_min, 0.0, "al_min", form_data);
     /* Alfa max */
@@ -112,4 +112,9 @@ void process_data(double &a, double &M, double &r_in, double &r_out, double &tem
     get_form_data(al_step, 0.0, "al_step", form_data);
     /* Beta krok */
     get_form_data(be_step, 0.0, "be_step", form_data);
+
+    for (const auto &item : form_data)
+    {
+        cerr << item.first << " = " << item.second << endl;
+    }
 }
