@@ -1,7 +1,13 @@
+# Virtuální prostředí
 .vscode/
 .venv/
+
+# Cache a dočasné soubory
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .*
+
+# Node
+node_modules/

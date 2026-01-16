@@ -1,0 +1,27 @@
+{
+  "name": "blackholes",
+  "version": "1.0.0",
+  "description": "Tailwind CSS",
+  "homepage": "https://github.com/PanVat/cerne-diry#readme",
+  "bugs": {
+    "url": "https://github.com/PanVat/cerne-diry/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PanVat/cerne-diry.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}
